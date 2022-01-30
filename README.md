@@ -44,13 +44,7 @@ The resulting output is the two-bit message that Alice was trying to send. Run t
 
  <div style="text-align: justify">We compute the calibration matrix on the device where we did the implementation and then use it to mitigate the measurement errors caused by the noisy nature of today's quantum hardware.</div>
 
----
 - for details about the implementation refer to Superdense Coding.ipynb
-
-Defining a Metric for Error Correction Codes
-There are numerous approaches to determining how robust an error correcting code is. The easiest place to start is with the ratio of encoded qubits to physical qubits. More effiecient codes requiring fewer physical qubits for each encoded qubit are preferred. In the case of repetition code, $|\bar{0}> =|000>$ and $|\bar{1}> = |111>$, we require 3 physical qubits for each encoded qubit. The second aspect to take into consideration is how many errors are required to map one encoded qubit to another; we call this the distance. Again considering the repetition code if we have one bit flip we can use majority vote and still have the correct encoded qubit. Thus, it takes two bit flips errors to map an encoded qubit to another. However, a single phase error, Pauli z, takes the encoded qubit $|\bar{\text{+}}> = \frac{1}{\sqrt{2}}(|111> + |000>)$ to the encoded qubit $|\bar{\text{-}}> = \frac{1}{\sqrt{2}}(|111> - |000>)$. Thus, the minimum number of errors required to map one encoded qubit to another is 1: $distance=1$. 
-Since quantum computers have different probabilities for different errors, we must take into account both the distance and the probability of the specific error. What we are interested in is the product of the distance and the probability of a specific error occurring, we define this this product to be total distance. We define our metric to be \begin{equation} M = \text{total distance}\frac{\text{encoded qubits}}{\text{physical qubits}} \end{equation}
-
 
 ## Summary of MIT IQuHack 2022
 We learned a lot about error correction and had a lot of fun getting to know each other. However, we found that error correction is very difficult and were unable to develop a working error correction code. Overall, it was a good learning experience and we look forward to competing next year!
